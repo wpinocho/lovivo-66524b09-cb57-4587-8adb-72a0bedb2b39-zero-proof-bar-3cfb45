@@ -6,6 +6,7 @@ import { CollectionCard } from '@/components/CollectionCard';
 import { FloatingCart } from '@/components/FloatingCart';
 import { NewsletterSection } from '@/components/NewsletterSection';
 import { EcommerceTemplate } from '@/templates/EcommerceTemplate';
+import { CreateBlogButton } from '@/components/CreateBlogButton';
 import type { UseIndexLogicReturn } from '@/components/headless/HeadlessIndex';
 
 /**
@@ -40,7 +41,7 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
         <div 
           className="relative h-[600px] bg-cover bg-center"
           style={{
-            backgroundImage: `url('/src/assets/hero-mocktails.jpg')`,
+            backgroundImage: `url('https://ptgmltivisbtvmoxwnhd.supabase.co/storage/v1/object/public/product-images/66524b09-cb57-4587-8adb-72a0bedb2b39/hero-mocktails.jpg')`,
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background"></div>
@@ -130,6 +131,7 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
       <NewsletterSection />
 
       <FloatingCart />
+      <CreateBlogButton />
     </EcommerceTemplate>
   );
 };
