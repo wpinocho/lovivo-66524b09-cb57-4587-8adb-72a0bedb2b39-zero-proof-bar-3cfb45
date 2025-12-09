@@ -78,11 +78,11 @@ const BlogPost = () => {
         const imageIndex = Math.floor((index + 1) * additionalImages.length / paragraphs.length)
         if (imageIndex < additionalImages.length && imageIndex > 0 && !result.find(el => el.key === `image-${imageIndex}`)) {
           result.push(
-            <div key={`image-${imageIndex}`} className="my-8">
+            <div key={`image-${imageIndex}`} className="my-12">
               <img 
                 src={additionalImages[imageIndex - 1]}
                 alt={`Article image ${imageIndex}`}
-                className="w-full max-w-2xl mx-auto rounded-lg object-cover"
+                className="w-full max-w-3xl mx-auto rounded-lg object-cover cyber-border"
               />
             </div>
           )
@@ -98,12 +98,12 @@ const BlogPost = () => {
       <EcommerceTemplate showCart={true}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="animate-pulse">
-            <div className="h-8 bg-muted rounded-md mb-8"></div>
-            <div className="h-64 bg-muted rounded-md mb-8"></div>
+            <div className="h-8 bg-muted/20 rounded-md mb-8 cyber-border"></div>
+            <div className="h-96 bg-muted/20 rounded-md mb-8 cyber-border"></div>
             <div className="space-y-4">
-              <div className="h-4 bg-muted rounded-md"></div>
-              <div className="h-4 bg-muted rounded-md"></div>
-              <div className="h-4 bg-muted rounded-md w-3/4"></div>
+              <div className="h-4 bg-muted/20 rounded-md cyber-border"></div>
+              <div className="h-4 bg-muted/20 rounded-md cyber-border"></div>
+              <div className="h-4 bg-muted/20 rounded-md w-3/4 cyber-border"></div>
             </div>
           </div>
         </div>
@@ -149,53 +149,53 @@ const BlogPost = () => {
 
   return (
     <EcommerceTemplate showCart={true}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Back to blog button */}
         <Button 
-          variant="ghost" 
+          variant="outline" 
           onClick={() => navigate('/blog')}
-          className="text-muted-foreground hover:text-foreground flex items-center gap-2 mb-8"
+          className="cyber-border hover:cyber-glow flex items-center gap-2 mb-8 group"
         >
-          <ArrowLeft className="h-4 w-4" />
-          Back to blog
+          <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform duration-300" />
+          <span className="font-bold uppercase tracking-wider">Back to Blog</span>
         </Button>
 
         <article>
           {/* Featured Image */}
           {blog.featured_image && blog.featured_image.length > 0 && (
-            <div className="mb-8">
+            <div className="mb-12 rounded-lg overflow-hidden cyber-border">
               <img 
                 src={blog.featured_image[0]} 
                 alt={blog.title}
-                className="w-full h-64 md:h-96 object-cover rounded-lg"
+                className="w-full h-72 md:h-[500px] object-cover"
               />
             </div>
           )}
 
           {/* Article Header */}
-          <header className="mb-8">
-            <div className="flex items-center text-sm text-muted-foreground mb-4">
-              <Calendar className="h-4 w-4 mr-2" />
+          <header className="mb-12 text-center">
+            <div className="flex items-center justify-center text-xs text-primary mb-4 font-bold uppercase tracking-wider">
+              <Calendar className="h-3 w-3 mr-2" />
               {blog.created_at && formatDate(blog.created_at)}
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h1 className="text-4xl md:text-5xl font-black text-foreground mb-6 cyber-text-glow leading-tight">
               {blog.title}
             </h1>
             {blog.excerpt && (
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-xl text-secondary leading-relaxed max-w-3xl mx-auto">
                 {blog.excerpt}
               </p>
             )}
           </header>
 
           {/* Article Content */}
-          <div className="prose prose-lg max-w-none dark:prose-invert">
+          <div className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-black prose-headings:cyber-text-glow prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-p:text-foreground prose-p:leading-relaxed prose-p:mb-6 prose-strong:text-primary prose-strong:font-bold prose-ul:text-foreground prose-li:mb-2">
             {blog.content ? (
               <div className="text-foreground leading-relaxed">
                 {renderContentWithImages(blog.content, blog.featured_image)}
               </div>
             ) : (
-              <p className="text-muted-foreground">No content available for this article.</p>
+              <p className="text-muted-foreground text-center py-8">No content available for this article.</p>
             )}
           </div>
         </article>
