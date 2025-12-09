@@ -6,7 +6,6 @@ import { CollectionCard } from '@/components/CollectionCard';
 import { FloatingCart } from '@/components/FloatingCart';
 import { NewsletterSection } from '@/components/NewsletterSection';
 import { EcommerceTemplate } from '@/templates/EcommerceTemplate';
-import { CreateBlogButton } from '@/components/CreateBlogButton';
 import type { UseIndexLogicReturn } from '@/components/headless/HeadlessIndex';
 
 /**
@@ -131,7 +130,6 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
       <NewsletterSection />
 
       <FloatingCart />
-      <CreateBlogButton />
     </EcommerceTemplate>
   );
 };
