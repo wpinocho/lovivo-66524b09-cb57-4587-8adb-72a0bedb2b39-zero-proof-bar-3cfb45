@@ -45,42 +45,34 @@ export const EcommerceTemplate = ({
   const { hasCollections, loading: loadingCollections } = useCollections()
 
   const header = (
-    <div className={`py-4 backdrop-blur-md bg-background/80 border-b border-primary/20 cyber-glow ${headerClassName}`}>
+    <div className={`py-3 backdrop-blur-sm bg-background/95 ${headerClassName}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="animate-float">
-            <BrandLogoLeft />
-          </div>
+          <BrandLogoLeft />
 
           {/* Navigation */}
-          <div className="hidden md:flex items-center space-x-2">
-            <nav className="flex space-x-2">
+          <div className="hidden md:flex items-center space-x-8">
+            <nav className="flex space-x-6">
               {!loadingCollections && hasCollections && (
                 <ScrollLink 
                   to="/#collections" 
-                  className="relative px-6 py-2.5 text-foreground hover:text-primary transition-all duration-300 font-bold text-sm uppercase tracking-wider group overflow-hidden rounded-lg"
+                  className="text-muted-foreground hover:text-primary transition-colors font-bold text-sm uppercase tracking-wide"
                 >
-                  <span className="relative z-10 cyber-text-glow group-hover:text-primary transition-all duration-300">Collections</span>
-                  <span className="absolute inset-0 bg-primary/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  Collections
                 </ScrollLink>
               )}
               <ScrollLink 
                 to="/#products" 
-                className="relative px-6 py-2.5 text-foreground hover:text-primary transition-all duration-300 font-bold text-sm uppercase tracking-wider group overflow-hidden rounded-lg"
+                className="text-muted-foreground hover:text-primary transition-colors font-bold text-sm uppercase tracking-wide"
               >
-                <span className="relative z-10 cyber-text-glow group-hover:text-primary transition-all duration-300">Spirits</span>
-                <span className="absolute inset-0 bg-primary/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                Spirits
               </ScrollLink>
               <Link 
                 to="/blog" 
-                className="relative px-6 py-2.5 text-foreground hover:text-primary transition-all duration-300 font-bold text-sm uppercase tracking-wider group overflow-hidden rounded-lg"
+                className="text-muted-foreground hover:text-primary transition-colors font-bold text-sm uppercase tracking-wide"
               >
-                <span className="relative z-10 cyber-text-glow group-hover:text-primary transition-all duration-300">Blog</span>
-                <span className="absolute inset-0 bg-primary/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                Blog
               </Link>
             </nav>
           </div>
@@ -94,12 +86,12 @@ export const EcommerceTemplate = ({
                 variant="ghost"
                 size="icon"
                 onClick={openCart}
-                className="relative hover:text-primary hover:bg-primary/10 transition-all duration-300 group"
+                className="relative hover:text-primary"
                 aria-label="View cart"
               >
-                <ShoppingCart className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <ShoppingCart className="h-5 w-5" />
                 {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center animate-pulse-glow">
+                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center cyber-glow">
                     {totalItems > 99 ? '99+' : totalItems}
                   </span>
                 )}
@@ -111,7 +103,7 @@ export const EcommerceTemplate = ({
         {/* Page Title */}
         {pageTitle && (
           <div className="mt-6">
-            <h1 className="text-3xl font-bold text-foreground cyber-text-glow">
+            <h1 className="text-3xl font-bold text-foreground">
               {pageTitle}
             </h1>
           </div>
