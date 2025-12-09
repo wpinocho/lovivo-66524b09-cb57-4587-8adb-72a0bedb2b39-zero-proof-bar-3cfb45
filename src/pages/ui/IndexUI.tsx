@@ -34,27 +34,43 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
     <EcommerceTemplate 
       showCart={true}
     >
-      {/* Hero Section */}
-      <section className="bg-background py-12 border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            Discover Our Products
-          </h1>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Find the best products at the best price. Guaranteed quality and fast shipping.
-          </p>
+      {/* Hero Section - Y2K Mocktails */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 cyber-gradient opacity-10"></div>
+        <div 
+          className="relative h-[600px] bg-cover bg-center"
+          style={{
+            backgroundImage: `url('/src/assets/hero-mocktails.jpg')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background"></div>
+          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center text-center">
+            <h1 className="text-6xl md:text-7xl font-black mb-6 cyber-text-glow animate-float">
+              ZERO-PROOF
+            </h1>
+            <p className="text-xl md:text-2xl text-secondary mb-8 max-w-2xl">
+              Premium non-alcoholic spirits crafted for the modern mixologist
+            </p>
+            <Button 
+              size="lg" 
+              className="cyber-glow animate-pulse-glow text-lg px-8 py-6 font-bold"
+              onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Discover Flavors
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* Collections Section */}
       {!loadingCollections && collections.length > 0 && (
-        <section id="collections" className="py-12 bg-muted/30">
+        <section id="collections" className="py-16 bg-muted/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-foreground mb-8">
-              Our Collections
+            <h2 className="text-4xl font-black text-center mb-12 cyber-text-glow">
+              Curated Collections
             </h2>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {collections.map((collection) => (
                 <CollectionCard 
                   key={collection.id} 
@@ -67,22 +83,23 @@ export const IndexUI = ({ logic }: IndexUIProps) => {
         </section>
       )}
 
-      {/* Products Section */}
-      <section id="products" className="py-12">
+      {/* Products Section - NA Spirits Grid */}
+      <section id="products" className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-foreground">
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="text-4xl font-black cyber-text-glow">
               {selectedCollectionId 
-                ? `Products from ${collections.find(c => c.id === selectedCollectionId)?.name || 'Collection'}` 
-                : 'Featured Products'
+                ? `${collections.find(c => c.id === selectedCollectionId)?.name || 'Collection'}` 
+                : 'NA Spirits'
               }
             </h2>
             {selectedCollectionId && (
               <Button 
                 variant="outline" 
                 onClick={handleShowAllProducts}
+                className="cyber-border"
               >
-                See All Products
+                See All Spirits
               </Button>
             )}
           </div>
